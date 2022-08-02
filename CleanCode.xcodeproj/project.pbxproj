@@ -99,13 +99,11 @@
 		434793632899107100B968F1 /* CleanCode */ = {
 			isa = PBXGroup;
 			children = (
-				434793642899107100B968F1 /* AppDelegate.swift */,
+				4347939528991B9200B968F1 /* App */,
+				4347939628991B9700B968F1 /* Core */,
+				4347939428991B6200B968F1 /* Resources */,
+				4347939728991BA100B968F1 /* Environments */,
 				434793662899107100B968F1 /* SceneDelegate.swift */,
-				434793682899107100B968F1 /* ViewController.swift */,
-				4347936A2899107100B968F1 /* Main.storyboard */,
-				4347936D2899107300B968F1 /* Assets.xcassets */,
-				4347936F2899107300B968F1 /* LaunchScreen.storyboard */,
-				434793722899107300B968F1 /* Info.plist */,
 			);
 			path = CleanCode;
 			sourceTree = "<group>";
@@ -125,6 +123,72 @@
 				434793872899107300B968F1 /* CleanCodeUITestsLaunchTests.swift */,
 			);
 			path = CleanCodeUITests;
+			sourceTree = "<group>";
+		};
+		4347939428991B6200B968F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4347936D2899107300B968F1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4347939528991B9200B968F1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				434793642899107100B968F1 /* AppDelegate.swift */,
+				4347939A28991BEC00B968F1 /* Assembly */,
+				4347939828991BBD00B968F1 /* BusinessLogic */,
+				4347939928991BE400B968F1 /* Entity */,
+				4347939B28991BF500B968F1 /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4347939628991B9700B968F1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4347939728991BA100B968F1 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				434793722899107300B968F1 /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		4347939828991BBD00B968F1 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		4347939928991BE400B968F1 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		4347939A28991BEC00B968F1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		4347939B28991BF500B968F1 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				434793682899107100B968F1 /* ViewController.swift */,
+				4347936A2899107100B968F1 /* Main.storyboard */,
+				4347936F2899107300B968F1 /* LaunchScreen.storyboard */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
