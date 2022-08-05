@@ -31,6 +31,12 @@ extension Auth: AuthRequestFactory {
         self.request(request: requestModel, completionHandler:
                         completionHandler)
     }
+    
+    func register(userId: Int, login: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void) {
+        let requestModel = Register(baseUrl: baseUrl, userID: userId, login: login, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+        self.request(request: requestModel, completionHandler:
+                        completionHandler)
+    }
 }
 
 extension Auth {
@@ -44,6 +50,33 @@ extension Auth {
             return [
                 "username": login,
                 "password": password
+            ]
+        }
+    }
+}
+
+extension Auth {
+    struct Register: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .get
+        let path: String = "register.json"
+        let userID: Int
+        let login: String
+        let password: String
+        let email: String
+        let gender: String
+        let creditCard: String
+        let bio: String
+        
+        var parameters: Parameters? {
+            return [
+                "id_user" : userID,
+                "username": login,
+                "password": password,
+                "email": email,
+                "gender": gender,
+                "credit_card": creditCard,
+                "bio": bio
             ]
         }
     }

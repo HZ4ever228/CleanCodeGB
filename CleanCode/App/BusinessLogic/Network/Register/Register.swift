@@ -1,50 +1,5 @@
 //
-//  Register.swift
-//  CleanCode
-//
-//  Created by Anton Hodyna on 05/08/2022.
-//
 
-import Foundation
-import Alamofire
 
-class Register: AbstractRequestFactory {
-    let errorParser: AbstractErrorParser
-    let sessionManager: Session
-    let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    init(
-        errorParser: AbstractErrorParser,
-        sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
-            self.errorParser = errorParser
-            self.sessionManager = sessionManager
-            self.queue = queue
-        }
-}
 
-extension Register: AuthRequestFactory {
-    func register(user: String, password: String, completionHandler: @escaping
-               (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: baseUrl, login: userName, password:
-                                    password)
-        self.request(request: requestModel, completionHandler:
-                        completionHandler)
-    }
-}
 
-extension Register {
-    struct Login: RequestRouter {
-        let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "login.json"
-        let login: String
-        let password: String
-        var parameters: Parameters? {
-            return [
-                "username": login,
-                "password": password
-            ]
-        }
-    }
-}

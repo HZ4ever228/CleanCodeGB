@@ -24,9 +24,8 @@
 		43C67C88289D17820058CE58 /* AuthRequstFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C87289D17820058CE58 /* AuthRequstFactory.swift */; };
 		43C67C8A289D180F0058CE58 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C89289D180F0058CE58 /* Auth.swift */; };
 		43C67C8C289D18740058CE58 /* RequstFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C8B289D18740058CE58 /* RequstFactory.swift */; };
-		43C67C90289D21D80058CE58 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C8F289D21D80058CE58 /* Register.swift */; };
-		43C67C92289D22920058CE58 /* RegisterRequstFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C91289D22920058CE58 /* RegisterRequstFactory.swift */; };
 		43C67C94289D23BE0058CE58 /* RegisterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C93289D23BE0058CE58 /* RegisterResult.swift */; };
+		43C67C99289D29AE0058CE58 /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C67C98289D29AD0058CE58 /* LogoutResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +66,8 @@
 		43C67C87289D17820058CE58 /* AuthRequstFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequstFactory.swift; sourceTree = "<group>"; };
 		43C67C89289D180F0058CE58 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		43C67C8B289D18740058CE58 /* RequstFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequstFactory.swift; sourceTree = "<group>"; };
-		43C67C8F289D21D80058CE58 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		43C67C91289D22920058CE58 /* RegisterRequstFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequstFactory.swift; sourceTree = "<group>"; };
 		43C67C93289D23BE0058CE58 /* RegisterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResult.swift; sourceTree = "<group>"; };
+		43C67C98289D29AD0058CE58 /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +193,9 @@
 		4347939928991BE400B968F1 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				43C67C97289D299E0058CE58 /* Logout */,
+				43C67C96289D24430058CE58 /* Register */,
 				43C67C95289D23C10058CE58 /* Login */,
-				43C67C93289D23BE0058CE58 /* RegisterResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -238,7 +237,6 @@
 		43C67C86289D17670058CE58 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				43C67C8E289D215A0058CE58 /* Register */,
 				43C67C8D289D21490058CE58 /* Auth */,
 			);
 			path = Network;
@@ -253,15 +251,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		43C67C8E289D215A0058CE58 /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				43C67C8F289D21D80058CE58 /* Register.swift */,
-				43C67C91289D22920058CE58 /* RegisterRequstFactory.swift */,
-			);
-			path = Register;
-			sourceTree = "<group>";
-		};
 		43C67C95289D23C10058CE58 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +258,22 @@
 				43C67C84289D17100058CE58 /* User.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		43C67C96289D24430058CE58 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				43C67C93289D23BE0058CE58 /* RegisterResult.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		43C67C97289D299E0058CE58 /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				43C67C98289D29AD0058CE58 /* LogoutResult.swift */,
+			);
+			path = Logout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,13 +414,12 @@
 			files = (
 				43C67C88289D17820058CE58 /* AuthRequstFactory.swift in Sources */,
 				43C67C79289D14B60058CE58 /* AbstractErrorParser.swift in Sources */,
+				43C67C99289D29AE0058CE58 /* LogoutResult.swift in Sources */,
 				43C67C83289D16EB0058CE58 /* LoginResult.swift in Sources */,
 				43C67C7D289D15550058CE58 /* DataRequest.swift in Sources */,
 				434793652899107100B968F1 /* AppDelegate.swift in Sources */,
 				43C67C8A289D180F0058CE58 /* Auth.swift in Sources */,
-				43C67C90289D21D80058CE58 /* Register.swift in Sources */,
 				43C67C94289D23BE0058CE58 /* RegisterResult.swift in Sources */,
-				43C67C92289D22920058CE58 /* RegisterRequstFactory.swift in Sources */,
 				43C67C85289D17100058CE58 /* User.swift in Sources */,
 				43C67C8C289D18740058CE58 /* RequstFactory.swift in Sources */,
 				434793672899107100B968F1 /* SceneDelegate.swift in Sources */,

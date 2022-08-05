@@ -18,11 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
             case .success(let login):
-                print(login)
+                print("loginData: ", login)
+                auth.register(userId: login.user.id, login: "Somebody", password: "mypassword", email: "", gender: "", creditCard: "", bio: "") { response in
+                    switch response.result {
+                    case .success(let register):
+                        print("registerData: ", register)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+        
         
         return true
     }
