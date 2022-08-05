@@ -10,10 +10,50 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let auth = requestFactory.makeAuthRequestFatory()
+        auth.login(userName: "Somebody", password: "mypassword") { response in
+            switch response.result {
+            case .success(let login):
+                print("loginData: ", login)
+                
+                auth.register(userId: login.user.id, login: "Somebody", password: "mypassword", email: "", gender: "", creditCard: "", bio: "") { response in
+                    switch response.result {
+                    case .success(let register):
+                        print("registerData: ", register)
+                        
+                        auth.changeUserData(userId: login.user.id, login: "Somebody", password: "mypassword", email: "test@mail.ru", gender: "third", creditCard: "", bio: "") { response in
+                            switch response.result {
+                            case .success(let change):
+                                print("changeData: ", change)
+                                
+                                auth.logout(userID: login.user.id) { response in
+                                    switch response.result {
+                                    case .success(let logout):
+                                        print("logoutData: ", logout)
+                                    case .failure(let error):
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        
         return true
     }
 
