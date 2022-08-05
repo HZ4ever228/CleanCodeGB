@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		434793652899107100B968F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434793642899107100B968F1 /* AppDelegate.swift */; };
-		434793672899107100B968F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434793662899107100B968F1 /* SceneDelegate.swift */; };
 		4347936E2899107300B968F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4347936D2899107300B968F1 /* Assets.xcassets */; };
 		434793712899107300B968F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4347936F2899107300B968F1 /* LaunchScreen.storyboard */; };
 		4347937C2899107300B968F1 /* CleanCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4347937B2899107300B968F1 /* CleanCodeTests.swift */; };
@@ -52,7 +51,6 @@
 /* Begin PBXFileReference section */
 		434793612899107100B968F1 /* CleanCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		434793642899107100B968F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		434793662899107100B968F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4347936D2899107300B968F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		434793702899107300B968F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		434793722899107300B968F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		4347939528991B9200B968F1 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				434793662899107100B968F1 /* SceneDelegate.swift */,
 				434793642899107100B968F1 /* AppDelegate.swift */,
 				4347939A28991BEC00B968F1 /* Assembly */,
 				4347939828991BBD00B968F1 /* BusinessLogic */,
@@ -228,7 +225,6 @@
 				43C67C77289D14950058CE58 /* Encoding */,
 				43C67C7C289D15550058CE58 /* DataRequest.swift */,
 				43C67C7E289D16480058CE58 /* RequstRouter.swift */,
-				43C67C8B289D18740058CE58 /* RequstFactory.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -245,6 +241,7 @@
 		43C67C86289D17670058CE58 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				43C67C8B289D18740058CE58 /* RequstFactory.swift */,
 				43C67C8D289D21490058CE58 /* Auth */,
 			);
 			path = Network;
@@ -437,7 +434,6 @@
 				43C67C94289D23BE0058CE58 /* RegisterResult.swift in Sources */,
 				43C67C85289D17100058CE58 /* User.swift in Sources */,
 				43C67C8C289D18740058CE58 /* RequstFactory.swift in Sources */,
-				434793672899107100B968F1 /* SceneDelegate.swift in Sources */,
 				43C67C7F289D16480058CE58 /* RequstRouter.swift in Sources */,
 				43C67CA0289D2D840058CE58 /* ChangeUserDataRequest.swift in Sources */,
 				43C67C7B289D14DC0058CE58 /* ErrorParser.swift in Sources */,
