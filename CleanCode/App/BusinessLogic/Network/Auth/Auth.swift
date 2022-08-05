@@ -24,12 +24,12 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
+    
     func login(userName: String, password: String, completionHandler: @escaping
                (AFDataResponse<LoginResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password:
                                     password)
-        self.request(request: requestModel, completionHandler:
-                        completionHandler)
+        self.request(request: requestModel, completionHandler: completionHandler)
     }
     
     func register(userId: Int, login: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void) {
@@ -37,47 +37,14 @@ extension Auth: AuthRequestFactory {
         self.request(request: requestModel, completionHandler:
                         completionHandler)
     }
-}
-
-extension Auth {
-    struct Login: RequestRouter {
-        let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "login.json"
-        let login: String
-        let password: String
-        var parameters: Parameters? {
-            return [
-                "username": login,
-                "password": password
-            ]
-        }
+    
+    func changeUserData(userId: Int, login: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<CommonResult>) -> Void) {
+        let requestModel = ChangeUserData(baseUrl: baseUrl, userID: userId, login: login, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+        self.request(request: requestModel, completionHandler: completionHandler)
     }
-}
-
-extension Auth {
-    struct Register: RequestRouter {
-        let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "register.json"
-        let userID: Int
-        let login: String
-        let password: String
-        let email: String
-        let gender: String
-        let creditCard: String
-        let bio: String
-        
-        var parameters: Parameters? {
-            return [
-                "id_user" : userID,
-                "username": login,
-                "password": password,
-                "email": email,
-                "gender": gender,
-                "credit_card": creditCard,
-                "bio": bio
-            ]
-        }
+    
+    func logout(userID: Int, completionHandler: @escaping (AFDataResponse<CommonResult>) -> Void) {
+        let requestModel = Logout(baseUrl: baseUrl, userID: userID)
+        self.request(request: requestModel, completionHandler: completionHandler)
     }
 }

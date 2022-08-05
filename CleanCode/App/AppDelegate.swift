@@ -19,10 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let login):
                 print("loginData: ", login)
+                
                 auth.register(userId: login.user.id, login: "Somebody", password: "mypassword", email: "", gender: "", creditCard: "", bio: "") { response in
                     switch response.result {
                     case .success(let register):
                         print("registerData: ", register)
+                        
+                        auth.changeUserData(userId: login.user.id, login: "Somebody", password: "mypassword", email: "test@mail.ru", gender: "third", creditCard: "", bio: "") { response in
+                            switch response.result {
+                            case .success(let change):
+                                print("changeData: ", change)
+                                
+                                auth.logout(userID: login.user.id) { response in
+                                    switch response.result {
+                                    case .success(let logout):
+                                        print("logoutData: ", logout)
+                                    case .failure(let error):
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
