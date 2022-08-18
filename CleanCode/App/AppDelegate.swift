@@ -14,30 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //makeAllAuth()
-        
-        let productsFactory = requestFactory.makeProductRequestFatory()
-        productsFactory.getProducts(pageNumber: 1, categoryID: 1) { response in
-            switch response.result {
-                case .success(let getProductsResult):
-                print("getProducts: ", getProductsResult)
-                for product in getProductsResult {
-                    productsFactory.getProduct(productID: product.productID) { response in
-                        switch response.result {
-                        case .success(let getProductResult):
-                            print("getProduct with ID \(product.productID): \(getProductResult)")
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                }
-                case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        
-        
+        registrationTest()
+       // makeAllAuth()
+       // productsTest()
         
         return true
     }
@@ -54,6 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func registrationTest() {
+        let authFactory = requestFactory.makeAuthRequestFatory()
+        authFactory.register(userId: 123, login: "Somebody", password: "mypassword", email: "", gender: "", creditCard: "", bio: "") { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let register):
+                print("registerData: ", register)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func makeAllAuth() {
@@ -96,6 +88,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func productsTest() {
+        let productsFactory = requestFactory.makeProductRequestFatory()
+        productsFactory.getProducts(pageNumber: 1, categoryID: 1) { response in
+            switch response.result {
+                case .success(let getProductsResult):
+                print("getProducts: ", getProductsResult)
+                for product in getProductsResult {
+                    productsFactory.getProduct(productID: product.productID) { response in
+                        switch response.result {
+                        case .success(let getProductResult):
+                            print("getProduct with ID \(product.productID): \(getProductResult)")
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+                case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
