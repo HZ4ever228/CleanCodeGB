@@ -9,13 +9,13 @@ import Foundation
 import Alamofire
 
 protocol ProductRequstFactory {
-    func getProducts(pageNumber: Int, categoryID: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void)
+    func getProducts(pageNumber: String, categoryID: String, completionHandler: @escaping (AFDataResponse<GetProductsResult>) -> Void)
     
     func getProduct(productID: Int, completionHandler: @escaping (AFDataResponse<GetProductResult>) -> Void)
 }
 
 extension NetworkManager: ProductRequstFactory {
-    func getProducts(pageNumber: Int, categoryID: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void) {
+    func getProducts(pageNumber: String, categoryID: String, completionHandler: @escaping (AFDataResponse<GetProductsResult>) -> Void) {
         let requestModel = ProductsRequest(baseUrl: baseUrl, pageNumber: pageNumber, categoryID: categoryID)
         self.request(request: requestModel, completionHandler: completionHandler)
     }

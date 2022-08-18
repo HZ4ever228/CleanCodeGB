@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //loginTest()
         //registrationTest()
       //  changeUserDataTest()
-        logoutTest()
+       // logoutTest()
        // productsTest()
+        getProductsTest()
+      //  getProductTest()
         
         return true
     }
@@ -84,23 +86,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    func productsTest() {
+    
+    func getProductsTest() {
         let productsFactory = requestFactory.makeProductRequestFatory()
-        productsFactory.getProducts(pageNumber: 1, categoryID: 1) { response in
+        productsFactory.getProducts(pageNumber: "1", categoryID: "1") { response in
             switch response.result {
-                case .success(let getProductsResult):
+            case .success(let getProductsResult):
                 print("getProducts: ", getProductsResult)
-                for product in getProductsResult {
-                    productsFactory.getProduct(productID: product.productID) { response in
-                        switch response.result {
-                        case .success(let getProductResult):
-                            print("getProduct with ID \(product.productID): \(getProductResult)")
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                }
-                case .failure(let error):
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getProductTest() {
+        let productsFactory = requestFactory.makeProductRequestFatory()
+        productsFactory.getProduct(productID: 1) { response in
+            switch response.result {
+            case .success(let getProductResult):
+                print("getProduct \(getProductResult)")
+            case .failure(let error):
                 print(error.localizedDescription)
             }
         }
