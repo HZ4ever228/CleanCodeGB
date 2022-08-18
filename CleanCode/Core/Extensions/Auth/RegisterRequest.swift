@@ -10,8 +10,8 @@ import Alamofire
 
 struct Register: RequestRouter {
     let baseUrl: URL
-    let method: HTTPMethod = .get
-    let path: String = "registerUser.json"
+    let method: HTTPMethod = .post
+    let path: String = "register"
     let userID: Int
     let login: String
     let password: String

@@ -8,7 +8,7 @@
 import Foundation
 
 struct GetProductsResult: Codable {
-    let pageNumber: Int
+    let pageNumber: String
     let products: [Product]
     
     enum CodingKeys: String, CodingKey {
@@ -17,14 +17,3 @@ struct GetProductsResult: Codable {
     }
 }
 
-struct Product: Codable {
-    let productID: Int
-    let productName: String
-    let productPrice: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case productID = "id_product"
-        case productName = "product_name"
-        case productPrice = "price"
-    }
-}

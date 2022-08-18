@@ -12,7 +12,7 @@ class NetworkManager: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://murmuring-sierra-96989.herokuapp.com/")!
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
