@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        registrationTest()
+        loginTest()
+        //registrationTest()
        // makeAllAuth()
        // productsTest()
         
@@ -35,10 +35,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    func loginTest() {
+        let authFactory = requestFactory.makeAuthRequestFatory()
+        authFactory.login(userName: "Somebody", password: "mypassword") { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let login):
+                print("loginData: ", login)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func registrationTest() {
         let authFactory = requestFactory.makeAuthRequestFatory()
         authFactory.register(userId: 123, login: "Somebody", password: "mypassword", email: "", gender: "", creditCard: "", bio: "") { response in
-            debugPrint(response)
             switch response.result {
             case .success(let register):
                 print("registerData: ", register)

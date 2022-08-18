@@ -10,4 +10,5 @@ import Foundation
 struct LoginResult: Codable {
     let result: Int
     let user: User
+    var error_message: String?
 }
