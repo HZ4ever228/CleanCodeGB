@@ -18,7 +18,7 @@ protocol AuthRequestFactory {
     func changeUserData(userId: Int, login: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping
     (AFDataResponse<CommonResult>) -> Void)
     
-    func logout(userID: Int, completionHandler: @escaping
+    func logout(userID: String, completionHandler: @escaping
     (AFDataResponse<CommonResult>) -> Void)
 }
 
@@ -41,7 +41,7 @@ extension NetworkManager: AuthRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func logout(userID: Int, completionHandler: @escaping (AFDataResponse<CommonResult>) -> Void) {
+    func logout(userID: String, completionHandler: @escaping (AFDataResponse<CommonResult>) -> Void) {
         let requestModel = Logout(baseUrl: baseUrl, userID: userID)
         self.request(request: requestModel, completionHandler: completionHandler)
     }

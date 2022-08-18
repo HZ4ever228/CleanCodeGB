@@ -13,9 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        loginTest()
+        //loginTest()
         //registrationTest()
-       // makeAllAuth()
+      //  changeUserDataTest()
+        logoutTest()
        // productsTest()
         
         return true
@@ -60,47 +61,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func makeAllAuth() {
+    func changeUserDataTest() {
         let authFactory = requestFactory.makeAuthRequestFatory()
-        authFactory.login(userName: "Somebody", password: "mypassword") { response in
+        authFactory.changeUserData(userId: 123, login: "Somebody", password: "mypassword", email: "test@mail.ru", gender: "third", creditCard: "", bio: "") { response in
             switch response.result {
-            case .success(let login):
-                print("loginData: ", login)
-                
-                authFactory.register(userId: login.user.id, login: "Somebody", password: "mypassword", email: "", gender: "", creditCard: "", bio: "") { response in
-                    switch response.result {
-                    case .success(let register):
-                        print("registerData: ", register)
-                        
-                        authFactory.changeUserData(userId: login.user.id, login: "Somebody", password: "mypassword", email: "test@mail.ru", gender: "third", creditCard: "", bio: "") { response in
-                            switch response.result {
-                            case .success(let change):
-                                print("changeData: ", change)
-                                
-                                authFactory.logout(userID: login.user.id) { response in
-                                    switch response.result {
-                                    case .success(let logout):
-                                        print("logoutData: ", logout)
-                                    case .failure(let error):
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
-                        
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                
-                }
+            case .success(let change):
+                print("changeData: ", change)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
     
+    func logoutTest() {
+        let authFactory = requestFactory.makeAuthRequestFatory()
+        authFactory.logout(userID: "123") { response in
+            switch response.result {
+            case .success(let logout):
+                print("logoutData: ", logout)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     func productsTest() {
         let productsFactory = requestFactory.makeProductRequestFatory()
         productsFactory.getProducts(pageNumber: 1, categoryID: 1) { response in

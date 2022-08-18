@@ -10,7 +10,7 @@ import Alamofire
 
 struct Login: RequestRouter {
     let baseUrl: URL
-    let method: HTTPMethod = .post
+    let method: HTTPMethod = .get
     let path: String = "login"
     let login: String
     let password: String
